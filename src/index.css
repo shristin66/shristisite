@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* White with a soft pink tint, near-black text and a pink accent. */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 330 70% 98%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 330 45% 95.5%;
+    --muted-foreground: 240 3.8% 43%;
+    --accent: 330 45% 95.5%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 330 30% 91%;
+    --input: 330 30% 88%;
+    --ring: 333 71% 46%;
+    --brand: 333 71% 46%;
+    --brand-foreground: 0 0% 100%;
+  }
+
+  /* Black and white, with the same pink accent lifted for dark backgrounds. */
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 4% 8%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 330 86% 70%;
+    --brand: 330 86% 70%;
+    --brand-foreground: 0 0% 9%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    /* A faint pink glow behind the header and portrait. */
+    background-image: radial-gradient(
+      60rem 32rem at 50% -8rem,
+      hsl(var(--brand) / 0.09),
+      transparent 70%
+    );
+    background-repeat: no-repeat;
+  }
+
+  a,
+  button {
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}

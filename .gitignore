@@ -1,0 +1,4 @@
+node_modules
+.DS_Store
+# Build output: built and deployed by .github/workflows/deploy.yml
+dist
